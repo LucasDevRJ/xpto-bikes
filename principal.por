@@ -4,7 +4,7 @@ programa
 	funcao inicio()
 	{
 		cadeia nome
-		inteiro menu, tipo, codigo
+		inteiro menu, tipo, codigo, contador
 		caracter bicicletaLavada, bicicletaPneuTrocado, bicicletaManutencaoFreios
 		real precoLavagem, precoTrocaPneu, precoManutencaoFreios, desconto, precoTotal, precoDesconto, valorPago
 		logico temDesconto
@@ -18,15 +18,16 @@ programa
 		valorPago = 0.0
 		temDesconto = falso
 
-		escreva("----------|Tipo de Acesso|----------")
-		escreva("\n1 - Cliente")
-		escreva("\n2 - Funcionário\n")
-		escreva("------------------------------------")
-		escreva("\nEscolha o tipo de acesso: ")
-		leia(tipo)
+		para (contador = 0; contador < 18; contador++) {
+			escreva("\n\n----------|Tipo de Acesso|----------")
+			escreva("\n1 - Cliente")
+			escreva("\n2 - Funcionário\n")
+			escreva("------------------------------------")
+			escreva("\n\nEscolha o tipo de acesso: ")
+			leia(tipo)
 
-		escolha (tipo) {
-			caso 1:
+			escolha (tipo) {
+				caso 1:
 				escreva("\nQual é o seu nome? ")
 				leia(nome)
 
@@ -80,7 +81,7 @@ programa
 						escreva("\n---------------------------------\n")
 					}
 					
-					escreva("\n----------||Módulo para abertura de OS||----------\n")
+					escreva("\n----------||Módulo para abertura de OS||----------\n\n")
 					
 				} senao {
 					escreva("\nPrezado(a) ", nome, " Seja muito bem-vindo(a) à nossa loja.")
@@ -89,7 +90,7 @@ programa
 					escreva("----------|Menu de Opções|----------")
 					escreva("\n1 - Ver ofertas de bicicletas usadas.\n2 - Ver ofetas de bicicletas novas.\n3 - Ver ofertas de acessórios.\n4 - Ver novos serviços.\n5 - Promoção I 10% de desconto.\n6 - Promoção II 10% de desconto.\n")
 					escreva("------------------------------------")
-					escreva("\nEscolha sua opção: ")
+					escreva("\n\nEscolha sua opção: ")
 					leia(menu)
 	
 					se (menu == 1) {
@@ -116,6 +117,7 @@ programa
 
 			caso contrario:
 				escreva("Digito inválido.")
+			}
 		}
 	}
 }
@@ -124,7 +126,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 4586; 
+ * @POSICAO-CURSOR = 537; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
