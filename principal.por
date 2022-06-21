@@ -4,7 +4,7 @@ programa
 	funcao inicio()
 	{
 		cadeia nome
-		inteiro menu, tipo, codigo, contador
+		inteiro menu, tipo, codigo, acessosSistema, iniciaSistema
 		caracter bicicletaLavada, bicicletaPneuTrocado, bicicletaManutencaoFreios
 		real precoLavagem, precoTrocaPneu, precoManutencaoFreios, desconto, precoTotal, precoDesconto, valorPago
 		logico temDesconto
@@ -17,8 +17,17 @@ programa
 		precoDesconto = 0.0
 		valorPago = 0.0
 		temDesconto = falso
+		acessosSistema = 0
 
-		para (contador = 0; contador < 18; contador++) {
+		escreva("----------|Acesso ao Sistema|----------\n")
+		escreva("1 - Sim\n2 - Não")
+		escreva("\n----------------------------------------\n")
+		escreva("Deseja Acessar o Sistema: ")
+		leia(iniciaSistema)
+
+		enquanto (iniciaSistema == 1) {
+			acessosSistema++
+			
 			escreva("\n\n----------|Tipo de Acesso|----------")
 			escreva("\n1 - Cliente")
 			escreva("\n2 - Funcionário\n")
@@ -88,7 +97,7 @@ programa
 					escreva("\n\nOferecemos em nossa loja venda e manutenção de bicicletas.\nPara venda de bicicletas, procure o colaborador Junior e, para manutenção, procure o colaborador Neto.\n\nObrigado e esperamos que tenha uma ótima experiência em nossa loja.\n\n")
 			
 					escreva("----------|Menu de Opções|----------")
-					escreva("\n1 - Ver ofertas de bicicletas usadas.\n2 - Ver ofetas de bicicletas novas.\n3 - Ver ofertas de acessórios.\n4 - Ver novos serviços.\n5 - Promoção I 10% de desconto.\n6 - Promoção II 10% de desconto.\n")
+					escreva("\n1 - Ver ofertas de bicicletas usadas.\n2 - Ver ofetas de bicicletas novas.\n3 - Ver ofertas de acessórios.\n4 - Ver novos serviços.\n5 - Promoção I 10% de desconto.\n6 - Promoção II 10% de desconto.\n10 - Sair.\n")
 					escreva("------------------------------------")
 					escreva("\n\nEscolha sua opção: ")
 					leia(menu)
@@ -105,6 +114,9 @@ programa
 						escreva("\nLave sua bicicleta (R$ 12,99) e realize a manutenção no freio (R$ 10,99) com desconto de 10% na folha de pagamento.")
 					} senao se (menu == 6) {
 						escreva("\nTroque o pneu da bicicleta (R$ 55,99) e realize manutenção nos freios (R$ 10,99) com 20% de desconto no total do pagamento.")
+					} senao se (menu == 10) {
+						escreva("\nNúmero de Acessos ao Sistema: ", acessosSistema)
+						iniciaSistema = 2
 					}
 				}
 				
@@ -126,7 +138,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 537; 
+ * @POSICAO-CURSOR = 4825; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
