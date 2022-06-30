@@ -3,9 +3,12 @@ programa
 	
 	funcao inicio()
 	{
-		cadeia nomeCliente, carrinhoCompras[2]
-		inteiro opcaoMenu, codigoMenu
-		real valorCarrinhoCompras[2]
+		
+		cadeia nomeCliente, carrinhoCompras[10]
+		inteiro opcaoMenu, codigoMenu, posicao
+		real valorCarrinhoCompras[10]
+
+		posicao = 0
 		
 		escreva("Bem-vindo ao autoatendimento da bicicletaria XPTO bikes.")
 		escreva("\n")
@@ -48,7 +51,35 @@ programa
 					escreva("Digite 8 ou 0: ")
 					leia(codigoMenu)
 
-					
+					se (codigoMenu == 8) {
+						escreva("Digite o código promocional desejado: ")
+						leia(codigoMenu)
+
+							se (posicao <= 2) {
+								se (codigoMenu == 101) {
+								carrinhoCompras[posicao] = "Bicicleta nova na cor amarela, aro 26, com 18 marchas."
+								valorCarrinhoCompras[posicao] = 999.99
+								posicao++
+								
+								} senao se (codigoMenu == 102) {
+									carrinhoCompras[posicao] = "Bicicleta usada na cor azul, aro 26, com 18 marchas."
+									valorCarrinhoCompras[posicao] = 400.00
+									posicao++
+									
+								} senao se (codigoMenu == 103) {
+									carrinhoCompras[posicao] = "Capacete de proteção."
+									valorCarrinhoCompras[posicao] = 59.99
+									posicao++
+									
+								} senao se (codigoMenu == 104) {
+									carrinhoCompras[posicao] = "Freio a disco."
+									valorCarrinhoCompras[posicao] = 89.99
+									posicao++
+								}
+						} senao {
+							escreva("\nCarinho está cheio!\n")
+						}
+					}
 					
 				} enquanto (codigoMenu != 0)
 				
@@ -71,6 +102,13 @@ programa
 					
 				} enquanto (codigoMenu != 0)
 				
+			} senao se (opcaoMenu == 3) {
+				escreva("\n----------|Carrinho de Compras|----------\n")
+				para (inteiro cont = 0; cont <= 2; cont++) {
+					escreva("\nProduto: ", carrinhoCompras[cont])
+					escreva("\nValor: ", valorCarrinhoCompras[cont])
+				}
+				escreva("\n--------------------------------------------\n")
 			}
 			
 		} enquanto (opcaoMenu != 0)
@@ -81,7 +119,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1418; 
+ * @POSICAO-CURSOR = 1571; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
