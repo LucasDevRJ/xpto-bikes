@@ -51,6 +51,11 @@ programa
 					escreva("Digite 8 ou 0: ")
 					leia(codigoMenu)
 
+					enquanto (codigoMenu != 8 e codigoMenu != 0) {
+						escreva("\nDigite somente 8 ou 0!\nDigite: ")
+						leia(codigoMenu)
+					}
+
 					se (codigoMenu == 8) {
 						escreva("Digite o código promocional desejado: ")
 						leia(codigoMenu)
@@ -75,6 +80,8 @@ programa
 									carrinhoCompras[posicao] = "Freio a disco."
 									valorCarrinhoCompras[posicao] = 89.99
 									posicao++
+								} senao {
+									escreva("\nCódigo inválido!\n")
 								}
 						} senao {
 							escreva("\nCarinho está cheio!\n")
@@ -99,6 +106,40 @@ programa
 
 					escreva("Digite 8 ou 0: ")
 					leia(codigoMenu)
+
+					enquanto (codigoMenu != 8 e codigoMenu != 0) {
+						escreva("\nDigite somente 8 ou 0!\nDigite: ")
+						leia(codigoMenu)
+					}
+
+					se (codigoMenu == 8) {
+						escreva("Digite o código do serviço desejado: ")
+						leia(codigoMenu)
+
+							se (posicao <= 2) {
+								se (codigoMenu == 201) {
+								carrinhoCompras[posicao] = "Troca de pneu."
+								valorCarrinhoCompras[posicao] = 999.99
+								posicao++
+								
+								} senao se (codigoMenu == 202) {
+									carrinhoCompras[posicao] = "Lavagem completa."
+									valorCarrinhoCompras[posicao] = 59.99
+									posicao++
+									
+								} senao se (codigoMenu == 203) {
+									carrinhoCompras[posicao] = "Lavagem completa."
+									valorCarrinhoCompras[posicao] = 12.99
+									posicao++
+									
+								} senao  {
+									escreva("\nCódigo inválido!\n")
+								}
+								
+						} senao {
+							escreva("\nCarinho está cheio!\n")
+						}
+					}
 					
 				} enquanto (codigoMenu != 0)
 				
@@ -119,7 +160,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1571; 
+ * @POSICAO-CURSOR = 305; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
