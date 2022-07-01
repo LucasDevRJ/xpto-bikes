@@ -18,6 +18,11 @@ programa
 		escreva("\n")
 		escreva("Digite seu nome: ")
 		leia(nomeCliente)
+
+		enquanto (nomeCliente == "") {
+			escreva("\nDigite seu nome!!!\nDigite: ")
+			leia(nomeCliente)
+		}
 		
 		escreva("\n")
 
@@ -199,7 +204,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 516; 
+ * @POSICAO-CURSOR = 536; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
