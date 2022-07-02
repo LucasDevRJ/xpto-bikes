@@ -23,6 +23,28 @@ programa
 			escreva("\nDigite seu nome!!!\nDigite: ")
 			leia(nomeCliente)
 		}
+
+		se (nomeCliente == "xptorestrito") {
+			escreva("Qual é o nome do cliente que comprou: ")
+			leia(nomeCliente)
+
+			enquanto (nomeCliente == "") {
+				escreva("\nDigite o nome do cliente!\nDigite: ")
+			}
+
+			escreva("\nDigite o valor gasto pelo cliente: ")
+			leia(valorCarrinhoCompras[posicao])
+
+			enquanto (valorCarrinhoCompras[posicao] <= 0) {
+				escreva("Digite um valor válido!\nDigite o valor: ")
+				leia(valorCarrinhoCompras[posicao])
+			}
+
+			escreva("\nD - Dinheiro\nC - Cartão\nDigite a forma que o cliente deseja pagar: ")
+			leia(formaPagamento)
+
+			
+		}
 		
 		escreva("\n")
 
@@ -204,7 +226,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 536; 
+ * @POSICAO-CURSOR = 988; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
