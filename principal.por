@@ -6,26 +6,27 @@ programa
 		
 		cadeia nomeCliente, carrinhoCompras[10]
 		caracter formaPagamento
-		inteiro opcaoMenu, codigoMenu, posicao
+		inteiro opcaoMenu, codigoMenu, posicao, numeroVendas
 		real valorCarrinhoCompras[10], valorTotal, desconto, valorTotalDesconto
 
 		posicao = 0
 		valorTotal = 0.0
 		desconto = 0.0
 		valorTotalDesconto = 0.0
-		
+		numeroVendas = 0
+
 		escreva("Bem-vindo ao autoatendimento da bicicletaria XPTO bikes.")
 		escreva("\n")
 		escreva("Digite seu nome: ")
 		leia(nomeCliente)
 
 		enquanto (nomeCliente == "") {
-			escreva("\nDigite seu nome!!!\nDigite: ")
+			escreva("\nDigite seu nome!!\nDigite: ")
 			leia(nomeCliente)
 		}
 
 		se (nomeCliente == "xptorestrito") {
-			escreva("Qual é o nome do cliente que comprou: ")
+			escreva("\nQual é o nome do cliente que comprou: ")
 			leia(nomeCliente)
 
 			enquanto (nomeCliente == "") {
@@ -43,8 +44,21 @@ programa
 			escreva("\nD - Dinheiro\nC - Cartão\nDigite a forma que o cliente deseja pagar: ")
 			leia(formaPagamento)
 
-			
-		}
+			enquanto (formaPagamento != 'D' e formaPagamento != 'C') {
+				escreva("\nForma inválida!\nDigite somente D ou C: ")
+				leia(formaPagamento)
+			}
+
+			se (formaPagamento == 'D') {
+				desconto = 10.0 / 100
+				escreva("\nValor Total a Ser Pago: R$ ", valorCarrinhoCompras[posicao])
+				valorCarrinhoCompras[posicao] = valorCarrinhoCompras[posicao] - (valorCarrinhoCompras[posicao] * desconto)
+				escreva("\nDesconto: ", desconto * 100, "%")
+				escreva("\nValor Final a Ser Pago: R$ ", valorCarrinhoCompras[posicao])
+			} senao {
+				escreva("\nValor Total a Ser Pago: R$ ", valorCarrinhoCompras[posicao])
+			}
+		} 
 		
 		escreva("\n")
 
@@ -160,19 +174,19 @@ programa
 							se (posicao <= 2) {
 								se (codigoMenu == 201) {
 								carrinhoCompras[posicao] = "Troca de pneu."
-								valorCarrinhoCompras[posicao] = 999.99
+								valorCarrinhoCompras[posicao] = 59.99
 								valorTotal = valorTotal + valorCarrinhoCompras[posicao]
 								posicao++
 								
 								} senao se (codigoMenu == 202) {
 									carrinhoCompras[posicao] = "Lavagem completa."
-									valorCarrinhoCompras[posicao] = 59.99
+									valorCarrinhoCompras[posicao] = 12.99
 									valorTotal = valorTotal + valorCarrinhoCompras[posicao]
 									posicao++
 									
 								} senao se (codigoMenu == 203) {
 									carrinhoCompras[posicao] = "Lavagem completa."
-									valorCarrinhoCompras[posicao] = 12.99
+									valorCarrinhoCompras[posicao] = 10.99
 									valorTotal = valorTotal + valorCarrinhoCompras[posicao]
 									posicao++
 									
@@ -213,9 +227,15 @@ programa
 					escreva("\nValor Total dos Produtos: R$ ", valorTotal)
 					escreva("\nDesconto: ", desconto * 100, "%")
 					escreva("\nValor Final: R$ ", valorTotalDesconto)
+					numeroVendas = posicao
 				} senao {
 					escreva("\nValor Total dos Produtos: R$ ", valorTotal)
+					numeroVendas = posicao
 				}
+			} senao se (opcaoMenu == 0) {
+				escreva("\nRelatório de Vendas Diário")
+				escreva("\nTotal de Vendas: ", numeroVendas)
+				escreva("\nValor Total de Vendas: R$ ", valorTotal)
 			}
 			
 		} enquanto (opcaoMenu != 0)
@@ -226,7 +246,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 988; 
+ * @POSICAO-CURSOR = 6005; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
